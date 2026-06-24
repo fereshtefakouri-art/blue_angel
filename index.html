@@ -3,104 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue Angel | بلو انجل</title>
-    <!-- فراخوانی فونت زیبای وزیرمتن -->
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Variable-font-face.css" rel="stylesheet" type="text/css" />
-    
-    <style>
-        body {
-            font-family: 'Vazirmatn', sans-serif;
-            margin: 0;
-            background-color: #f0f2f5;
-            color: #333;
-            line-height: 1.6;
-        }
-        nav {
-            background-color: #1a2a6c;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        nav a:hover {
-            color: #ffcc00;
-        }
-        .container {
-            padding: 40px 20px;
-            text-align: center;
-            max-width: 800px;
-            margin: auto;
-        }
-        h1 {
-            color: #1a2a6c;
-            font-size: 2.5rem;
-        }
-        .main-img {
-            width: 100%;
-            max-width: 600px;
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            margin: 30px 0;
-        }
-        .btn {
-            background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            transition: transform 0.2s;
-        }
-        .btn:hover {
-            transform: scale(1.05);
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <a href="index.html">خانه</a>
-        <a href="#">پروژه‌ها</a>
-        <a href="#">درباره من</a>
-        <a href="#">تماس</a>
-    </nav>
-
-    <div class="container">
-        <h1>به سایت رسمی بلو انجل خوش آمدید</h1>
-        <p>این یک شروع جدید برای ساختن پروژه‌های فوق‌العاده است.</p>
-        
-        <!-- عکس با کیفیت -->
-        <img src="https://images.unsplash.com/photo-1451187530220-4e2bd78f7ad6?auto=format&fit=crop&w=800&q=80" 
-             alt="Blue Space" class="main-img">
-        
-        <br>
-        <a href="#" class="btn">همین حالا شروع کنید</a>
-    </div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue Angel | پروفایل حرفه‌ای</title>
+    <title>Blue Angel | آینده طراحی‌کردنی است</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Variable-font-face.css" rel="stylesheet" type="text/css" />
     
     <style>
         :root {
-            --primary-color: #0f172a; /* سرمه‌ای تیره شرکتی */
-            --secondary-color: #3b82f6; /* آبی روشن مدرن */
-            --accent-color: #fbbf24; /* طلایی برای جزئیات */
+            --primary-color: #0f172a; 
+            --secondary-color: #3b82f6; 
+            --accent-color: #fbbf24; 
             --bg-light: #f8fafc;
         }
 
@@ -112,7 +22,6 @@
             line-height: 1.8;
         }
 
-        /* هدر و منو */
         nav {
             background-color: rgba(15, 23, 42, 0.95);
             padding: 1rem 5%;
@@ -130,6 +39,7 @@
             font-weight: 800;
             font-size: 1.5rem;
             letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .nav-links a {
@@ -144,86 +54,154 @@
             color: var(--accent-color);
         }
 
-        /* بخش معرفی اصلی (Hero Section) */
         .hero {
             background: linear-gradient(135deg, var(--primary-color) 0%, #1e3a8a 100%);
             color: white;
-            padding: 100px 5% 60px;
+            padding: 120px 5% 80px;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 25px;
             color: white;
+            font-weight: 900;
+            line-height: 1.4;
         }
 
         .hero p {
             font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: #94a3b8;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #cbd5e1;
+            font-weight: 300;
         }
 
         .main-img {
             width: 100%;
-            max-width: 700px;
-            border-radius: 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            border: 4px solid rgba(255,255,255,0.1);
+            max-width: 800px;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* بخش خدمات/ویژگی‌ها */
+        .section-title {
+            text-align: center;
+            margin: 80px 0 40px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 60px 5%;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 5%;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: -50px auto 0;
         }
 
         .card {
             background: white;
-            padding: 30px;
-            border-radius: 20px;
+            padding: 40px 30px;
+            border-radius: 24px;
             text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            border: 1px solid #f1f5f9;
         }
 
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary-color);
         }
 
-        .card h3 {
+        /* بخش وبلاگ جدید */
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 0 5% 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-post {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .blog-post:hover {
+            transform: scale(1.02);
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-date {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        .blog-title {
+            font-size: 1.2rem;
+            margin: 10px 0;
             color: var(--primary-color);
-            margin-bottom: 15px;
+            font-weight: bold;
         }
 
         .btn-main {
             display: inline-block;
-            background-color: var(--secondary-color);
+            background: linear-gradient(to right, var(--secondary-color), #2563eb);
             color: white;
-            padding: 12px 35px;
-            border-radius: 12px;
+            padding: 16px 45px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             transition: 0.3s;
-            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.5);
+            box-shadow: 0 15px 25px -5px rgba(59, 130, 246, 0.4);
         }
 
-        .btn-main:hover {
-            background-color: #2563eb;
-            transform: scale(1.05);
+        .read-more {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
         }
 
         footer {
             background: var(--primary-color);
-            color: #64748b;
+            color: #94a3b8;
             text-align: center;
-            padding: 40px;
-            margin-top: 50px;
+            padding: 50px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -233,39 +211,67 @@
         <div class="logo">BLUE ANGEL</div>
         <div class="nav-links">
             <a href="#">خانه</a>
-            <a href="#">خدمات</a>
-            <a href="#">نمونه‌کار</a>
-            <a href="#">تماس با ما</a>
+            <a href="#blog">یادداشت‌ها</a>
+            <a href="#">درباره من</a>
+            <a href="#">تماس</a>
         </div>
     </nav>
 
     <header class="hero">
-        <h1>خلاقیت در خدمت تجارت</h1>
-        <p>من بلو انجل هستم؛ ارائه دهنده راهکارهای نوین در دنیای دیجیتال و طراحی سیستم‌های هوشمند.</p>
-        <a href="#" class="btn-main">مشاهده پروژه‌ها</a>
-        <div style="margin-top: 50px;">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" 
-                 alt="Professional Workplace" class="main-img">
+        <h1>آینده، پیش‌بینی‌کردنی نیست؛<br>آینده، طراحی‌کردنی است.</h1>
+        <p>به دنیای Blue Angel خوش آمدید. من اینجا هستم تا با ترکیب هنر، تکنولوژی و تفکر نقادانه، مسیرهای جدیدی را در دنیای دیجیتال ترسیم کنم.</p>
+        <a href="#blog" class="btn-main">مطالعه آخرین یادداشت‌ها</a>
+        <div style="margin-top: 60px;">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" 
+                 alt="Digital Future" class="main-img">
         </div>
     </header>
 
+    <!-- بخش خدمات -->
     <section class="features">
         <div class="card">
-            <h3>طراحی مدرن</h3>
-            <p>استفاده از آخرین استانداردهای طراحی وب برای خلق تجربه‌ای بی‌نظیر.</p>
+            <h3>تفکر استراتژیک</h3>
+            <p>تحلیل چالش‌های پیچیده و تبدیل آن‌ها به فرصت‌های رشد در دنیای مدرن.</p>
         </div>
         <div class="card">
-            <h3>استراتژی برند</h3>
-            <p>تحلیل بازار و ایجاد هویت بصری خاص برای کسب و کارهای در حال رشد.</p>
+            <h3>نوآوری دیجیتال</h3>
+            <p>استفاده از ابزارهای هوشمند برای خلق تجربه‌های انسانی و ماندگار.</p>
         </div>
         <div class="card">
-            <h3>توسعه هوشمند</h3>
-            <p>کدنویسی بهینه و سریع با استفاده از جدیدترین تکنولوژی‌های روز دنیا.</p>
+            <h3>هویت برند</h3>
+            <p>طراحی مسیری منحصر به فرد برای دیده شدن در میان انبوه پیام‌ها.</p>
         </div>
     </section>
 
+    <!-- بخش وبلاگ جدید -->
+    <h2 class="section-title" id="blog">آخرین یادداشت‌ها</h2>
+    <div class="blog-container">
+        <!-- یادداشت ۱ -->
+        <article class="blog-post">
+            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=500&q=80" class="blog-img" alt="AI post">
+            <div class="blog-content">
+                <div class="blog-date">۳ تیر ۱۴۰۵</div>
+                <div class="blog-title">همزیستی با هوش مصنوعی؛ تهدید یا فرصت؟</div>
+                <p style="font-size: 0.9rem; color: #64748b;">در این یادداشت بررسی می‌کنیم که چگونه هوش مصنوعی می‌تواند به جای جایگزینی انسان، قدرت خلاقیت ما را چندین برابر کند...</p>
+                <a href="#" class="read-more">ادامه مطالعه ←</a>
+            </div>
+        </article>
+
+        <!-- یادداشت ۲ -->
+        <article class="blog-post">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=500&q=80" class="blog-img" alt="Future post">
+            <div class="blog-content">
+                <div class="blog-date">۲۸ خرداد ۱۴۰۵</div>
+                <div class="blog-title">چرا باید آینده را خودمان طراحی کنیم؟</div>
+                <p style="font-size: 0.9rem; color: #64748b;">منتظر ماندن برای تغییرات کافی نیست. در دنیای امروز، کسانی برنده هستند که معماریِ تغییر را بلد باشند...</p>
+                <a href="#" class="read-more">ادامه مطالعه ←</a>
+            </div>
+        </article>
+    </div>
+
     <footer>
-        <p>تمامی حقوق برای Blue Angel محفوظ است - ۲۰۲۶</p>
+        <p>© ۲۰۲۶ - تمامی حقوق برای Blue Angel محفوظ است</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">طراحی شده برای متفکران دنیای مدرن</p>
     </footer>
 
 </body>
