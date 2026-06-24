@@ -3,141 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue Angel | روایت یک تغییر</title>
+    <title>Blue Angel | پلتفرم تفکر و طراحی آینده</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Variable-font-face.css" rel="stylesheet" type="text/css" />
     
     <style>
         :root {
-            --primary-color: #0f172a; 
-            --secondary-color: #3b82f6; 
-            --accent-color: #fbbf24; 
-            --bg-light: #f8fafc;
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --glass: rgba(255, 255, 255, 0.8);
         }
+
+        * { box-sizing: border-box; transition: all 0.3s ease; }
 
         body {
             font-family: 'Vazirmatn', sans-serif;
             margin: 0;
-            background-color: var(--bg-light);
-            color: #1e293b;
+            background-color: #f1f5f9;
+            color: var(--text-main);
             line-height: 1.8;
+            overflow-x: hidden;
         }
 
+        /* انیمیشن ورود */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal { animation: fadeInUp 1s ease forwards; }
+
         nav {
-            background-color: rgba(15, 23, 42, 0.95);
-            padding: 1rem 5%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 1.2rem 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        .logo { color: white; font-weight: 800; font-size: 1.5rem; letter-spacing: 1px; }
-
-        .nav-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            margin-right: 20px;
-            font-size: 0.9rem;
-            transition: 0.3s;
+        .logo {
+            color: white;
+            font-weight: 900;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #60a5fa, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #1e3a8a 100%);
+            background: radial-gradient(circle at top right, #1e3a8a, #0f172a);
             color: white;
-            padding: 120px 5% 80px;
+            padding: 150px 8% 100px;
             text-align: center;
+            position: relative;
         }
 
         .hero h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 25px;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 30px;
+            line-height: 1.2;
             font-weight: 900;
-            line-height: 1.5;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            max-width: 900px;
-            margin: 0 auto 40px;
-            color: #cbd5e1;
+            font-size: 1.4rem;
+            max-width: 850px;
+            margin: 0 auto 50px;
+            color: #94a3b8;
             font-weight: 300;
         }
 
-        .main-img {
-            width: 100%;
-            max-width: 800px;
-            border-radius: 30px;
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
-            margin-top: 50px;
+        .btn-premium {
+            background: white;
+            color: var(--primary);
+            padding: 18px 45px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .section-title {
-            text-align: center;
-            margin: 80px 0 40px;
-            font-size: 2.2rem;
-            color: var(--primary-color);
+        .btn-premium:hover {
+            transform: scale(1.05);
+            background: var(--accent);
+            color: white;
         }
 
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 0 5%;
-            max-width: 1200px;
-            margin: -60px auto 60px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            padding: 0 8%;
+            margin: -80px auto 100px;
+            max-width: 1400px;
         }
 
         .card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 24px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            border: 1px solid #f1f5f9;
-            transition: 0.4s;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 50px 40px;
+            border-radius: 32px;
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            text-align: right;
         }
 
-        .card:hover { transform: translateY(-10px); border-color: var(--secondary-color); }
+        .card:hover {
+            background: white;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
 
-        .blog-container {
+        .card h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card h3::before {
+            content: '';
+            width: 10px; height: 10px;
+            background: var(--accent);
+            margin-left: 15px;
+            border-radius: 50%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 60px;
+        }
+
+        .blog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            padding: 0 5% 80px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            padding: 0 8% 100px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        .blog-post {
+        .blog-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        .blog-img { width: 100%; height: 220px; object-fit: cover; }
+        .blog-card img { width: 100%; height: 250px; object-fit: cover; }
 
-        .blog-content { padding: 25px; }
-
-        .btn-main {
-            display: inline-block;
-            background: linear-gradient(to right, var(--secondary-color), #2563eb);
-            color: white;
-            padding: 16px 45px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 15px 25px -5px rgba(59, 130, 246, 0.4);
-        }
+        .blog-body { padding: 30px; }
 
         footer {
-            background: var(--primary-color);
-            color: #94a3b8;
+            background: var(--primary);
+            padding: 80px 8%;
+            color: #64748b;
             text-align: center;
-            padding: 60px;
+        }
+
+        .main-visual {
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 40px;
+            margin-top: 80px;
+            filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5));
         }
     </style>
 </head>
@@ -145,63 +184,66 @@
 
     <nav>
         <div class="logo">BLUE ANGEL</div>
-        <div class="nav-links">
-            <a href="#">خانه</a>
-            <a href="#blog">یادداشت‌ها</a>
-            <a href="#">درباره من</a>
+        <div style="display: flex; gap: 30px;">
+            <a href="#" style="color: white; text-decoration: none;">تکنولوژی</a>
+            <a href="#" style="color: white; text-decoration: none;">فلسفه</a>
+            <a href="#" style="color: white; text-decoration: none;">یادداشت‌ها</a>
         </div>
     </nav>
 
     <header class="hero">
-        <h1>آینده، پیش‌بینی‌کردنی نیست؛<br>آینده، طراحی‌کردنی است.</h1>
-        <p>من «آبی» هستم؛ نه به معنای یک رنگ، بلکه به معنای وسعتِ آسمان قبل از طوفان و عمقِ اقیانوسی که آرامش را در دل تلاطم معنا می‌کند. اینجا ایستگاه اولِ روایتی است که قرار است دنیای دیجیتال را با نگاهی انسانی‌تر بازتعریف کند.</p>
-        <a href="#blog" class="btn-main">سفر به دنیای یادداشت‌ها</a>
-        <div>
-            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" class="main-img">
+        <div class="reveal">
+            <h1>آینده، محصولِ انتخاب‌های<br>آگاهانه ماست.</h1>
+            <p>من «آبی» هستم؛ روایت‌گر تقاطعِ هوش مصنوعی، هنر دیجیتال و استراتژی‌های انسانی. اینجا فضایی برای بازپس‌گیری آینده از چنگالِ احتمالات و سپردن آن به دستِ طراحی است.</p>
+            <a href="#explore" class="btn-premium">شروع کاوش</a>
         </div>
+        <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=1200&q=80" class="main-visual reveal" style="animation-delay: 0.3s;">
     </header>
 
-    <section class="features">
-        <div class="card">
-            <h3>فلسفه آبی</h3>
-            <p>در دنیای شلوغ امروز، «آبی» بودن یعنی انتخابِ آگاهی به جای هیاهو. من معتقدم هر برند، یک روح دارد که باید کشف و طراحی شود.</p>
+    <section class="features" id="explore">
+        <div class="card reveal" style="animation-delay: 0.4s;">
+            <h3>وسعتِ آبی</h3>
+            <p>آبی بودن یک انتخاب است برای دیدن فراتر از افق‌های معمولی. ما در این فضا، به دنبال راهکارهایی هستیم که نه تنها هوشمند، بلکه الهام‌بخش باشند.</p>
         </div>
-        <div class="card">
-            <h3>تکنولوژیِ انسانی</h3>
-            <p>هوش مصنوعی و ابزارها فقط وسیله‌اند. هدف اصلی، خلق پیوندی است که در لابلای کدها و پیکسل‌ها، قلب مخاطب را لمس کند.</p>
+        <div class="card reveal" style="animation-delay: 0.5s;">
+            <h3>تکامل دیجیتال</h3>
+            <p>تکنولوژی بدونِ روح، تنها یک ابزار سرد است. تمرکز من بر دمیدنِ روحِ انسانی در کالبدِ الگوریتم‌های پیچیده و هوش مصنوعی است.</p>
         </div>
-        <div class="card">
-            <h3>معماریِ تغییر</h3>
-            <p>ما فقط طرح نمی‌زنیم، ما مسیر می‌سازیم. مسیری که از تحلیل داده‌های سخت شروع شده و به تجربه‌های نرم و دلنشین ختم می‌شود.</p>
+        <div class="card reveal" style="animation-delay: 0.6s;">
+            <h3>مهندسیِ معنا</h3>
+            <p>در عصر انفجار اطلاعات، «معنا» ارزشمندترین دارایی است. ما با طراحی دقیق، پیام شما را از لابلای نویزهای دیجیتال به مقصد می‌رسانیم.</p>
         </div>
     </section>
 
-    <h2 class="section-title" id="blog">آخرین یادداشت‌های آبی</h2>
-    <div class="blog-container">
-        <article class="blog-post">
-            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=500&q=80" class="blog-img">
-            <div class="blog-content">
-                <div style="font-size: 0.8rem; color: #94a3b8;">۳ تیر ۱۴۰۵</div>
-                <h3 style="margin: 10px 0;">همزیستی با هوش مصنوعی؛ تهدید یا فرصت؟</h3>
-                <p style="font-size: 0.9rem; color: #64748b;">بررسی اینکه چگونه هوش مصنوعی می‌تواند به جای جایگزینی با انسان، قدرت خلاقیت ما را در طراحی آینده چندین برابر کند...</p>
-                <a href="#" style="color: var(--secondary-color); text-decoration: none; font-weight: bold;">ادامه مطالعه ←</a>
+    <h2 class="section-title">جستارهایی در باب تغییر</h2>
+    <div class="blog-grid">
+        <article class="blog-card reveal">
+            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80">
+            <div class="blog-body">
+                <span style="color: var(--accent); font-weight: bold;">تکنولوژی</span>
+                <h3 style="margin: 15px 0;">پارادوکسِ هوش مصنوعی</h3>
+                <p>چگونه سپردنِ کارهای تکراری به ماشین، راه را برای ظهورِ «انسانیتِ واقعی» و خلاقیتِ ناب هموار می‌کند؟</p>
+                <a href="#" style="color: var(--primary); font-weight: 900; text-decoration: none;">مطالعه مقاله ←</a>
             </div>
         </article>
 
-        <article class="blog-post">
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=500&q=80" class="blog-img">
-            <div class="blog-content">
-                <div style="font-size: 0.8rem; color: #94a3b8;">۲۸ خرداد ۱۴۰۵</div>
-                <h3 style="margin: 10px 0;">چرا باید آینده را خودمان طراحی کنیم؟</h3>
-                <p style="font-size: 0.9rem; color: #64748b;">منتظر ماندن برای تغییرات کافی نیست. در دنیای امروز، کسانی برنده هستند که معماریِ تغییر را بلد باشند و آگاهانه قدم بردارند...</p>
-                <a href="#" style="color: var(--secondary-color); text-decoration: none; font-weight: bold;">ادامه مطالعه ←</a>
+        <article class="blog-card reveal">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80">
+            <div class="blog-body">
+                <span style="color: var(--accent); font-weight: bold;">طراحی</span>
+                <h3 style="margin: 15px 0;">مینیمالیسم در عصر وفور</h3>
+                <p>چرا در دنیای شلوغ امروز، حذف کردنِ گزینه‌های اضافی، بزرگترین خدمتِ یک طراح به مخاطب است؟</p>
+                <a href="#" style="color: var(--primary); font-weight: 900; text-decoration: none;">مطالعه مقاله ←</a>
             </div>
         </article>
     </div>
 
     <footer>
-        <p>© ۲۰۲۶ - تمامی حقوق برای Blue Angel محفوظ است</p>
-        <p style="font-size: 0.8rem; margin-top: 10px;">طراحی شده برای متفکران و معماران دنیای مدرن</p>
+        <div style="font-size: 1.5rem; font-weight: 900; color: white; margin-bottom: 20px;">BLUE ANGEL</div>
+        <p>آینده را طراحی کنیم، پیش از آنکه برایمان طراحی کنند.</p>
+        <div style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px;">
+            © ۲۰۲۶ - تمام حقوق این روایت محفوظ است.
+        </div>
     </footer>
 
 </body>
