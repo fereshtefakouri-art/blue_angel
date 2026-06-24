@@ -3,73 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue Angel | مانیفستِ آگاهی در عصرِ سینگولاریتی</title>
-    <!-- استفاده از فونت Vazirmatn با وزن‌های متنوع -->
+    <title>Blue Angel | مرکز تخصصی پردازش و تدوین مقالات علمی</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Variable-font-face.css" rel="stylesheet" type="text/css" />
     
     <style>
         :root {
-            --deep-space: #020617;
-            --electric-blue: #3b82f6;
-            --gold-accent: #eab308;
-            --text-silver: #cbd5e1;
-            --glass: rgba(15, 23, 42, 0.8);
+            --bg-deep: #020617;
+            --accent-blue: #3b82f6;
+            --text-gold: #f59e0b;
+            --glass: rgba(15, 23, 42, 0.9);
         }
 
-        * { box-sizing: border-box; transition: all 0.5s ease; }
+        * { box-sizing: border-box; transition: all 0.4s ease; scroll-behavior: smooth; }
 
         body {
             font-family: 'Vazirmatn', sans-serif;
             margin: 0;
-            background-color: #020617;
-            color: var(--text-silver);
-            line-height: 1.9;
+            background-color: var(--bg-deep);
+            color: #cbd5e1;
+            line-height: 1.8;
         }
 
-        /* استایل خاص برای تیتر اصلی - حرفه‌ای و درخشان */
+        nav {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            padding: 1rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo { font-weight: 900; font-size: 1.5rem; color: #fff; letter-spacing: 2px; }
+
+        .hero {
+            padding: 120px 8%;
+            text-align: center;
+            background: radial-gradient(circle at top, #1e1b4b 0%, #020617 100%);
+        }
+
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-size: clamp(2rem, 5vw, 4rem);
             font-weight: 900;
-            line-height: 1.1;
-            color: #ffffff;
-            letter-spacing: -1px;
-            margin-bottom: 35px;
-            text-shadow: 0 5px 30px rgba(59, 130, 246, 0.3);
+            color: #fff;
+            margin-bottom: 25px;
         }
 
-        .hero h1 span {
-            color: var(--electric-blue);
-            text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        .hero h1 span { color: var(--accent-blue); }
+
+        .hero p {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+            color: #94a3b8;
         }
 
-        /* سایر بخش‌های قبلی ثابت می‌مانند */
-        .hero { padding: 180px 8% 120px; text-align: center; background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%); }
-        .hero p { font-size: 1.5rem; max-width: 900px; margin: 0 auto 50px; color: #94a3b8; font-weight: 300; }
-        
-        /* بقیه استایل‌ها برای حفظ ساختار سایت */
-        nav { background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(20px); padding: 1.5rem 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .logo { font-weight: 900; font-size: 1.6rem; letter-spacing: 3px; color: #fff; }
-        .btn-core { display: inline-block; border: 1px solid var(--electric-blue); color: white; padding: 20px 50px; border-radius: 2px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; background: rgba(59, 130, 246, 0.1); }
-        .btn-core:hover { background: var(--electric-blue); box-shadow: 0 0 30px var(--electric-blue); }
-        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px; padding: 0 8%; margin: -60px auto 100px; max-width: 1400px; }
-        .card { background: var(--glass); padding: 60px 40px; border-left: 2px solid var(--electric-blue); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-        .card h3 { color: white; font-size: 1.8rem; margin-bottom: 25px; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 50px 8%;
+        }
+
+        .service-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: right;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-10px);
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        .service-card h3 { color: #fff; margin-bottom: 15px; font-size: 1.5rem; }
+        .service-card .tag { 
+            color: var(--accent-blue); 
+            font-size: 0.8rem; 
+            font-weight: bold; 
+            display: block; 
+            margin-bottom: 10px;
+        }
+
+        .btn-action {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .process-section {
+            background: #0f172a;
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step { width: 200px; }
+        .step .number {
+            width: 50px; height: 50px;
+            background: var(--accent-blue);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-weight: 900;
+        }
+
+        footer {
+            padding: 60px 8%;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">BLUE ANGEL</div>
-        <div style="font-size: 0.8rem; letter-spacing: 2px;">V. 01 / 2026</div>
+        <div class="logo">BLUE ANGEL ACADEMY</div>
+        <div style="display: flex; gap: 20px; font-size: 0.9rem;">
+            <a href="#services" style="color: #94a3b8; text-decoration: none;">خدمات</a>
+            <a href="#process" style="color: #94a3b8; text-decoration: none;">فرآیند</a>
+            <a href="#" style="color: #fff; text-decoration: none; border: 1px solid var(--accent-blue); padding: 5px 15px; border-radius: 5px;">ثبت سفارش</a>
+        </div>
     </nav>
 
     <header class="hero">
-        <h1><span>آگاهی</span>، آخرین سنگرِ<br>در عصرِ سینگولاریتی.</h1>
-        <p>من «آبی» هستم؛ نه یک هویتِ ایستا، بلکه جریانی از پرسش‌های بنیادین در تلاقیِ هوش مصنوعی و شهودِ انسانی. اینجا قلمرویی است برای گذار از «مصرف‌کننده بودن» به «معمار بودن».</p>
-        <a href="#philosophy" class="btn-core">ورود به مدارِ اندیشه</a>
+        <h1>تبدیلِ یافته‌ها به <span>استانداردهای جهانی</span></h1>
+        <p>مرکز تخصصی Blue Angel، پلی است میان پژوهش‌های خام شما و معتبرترین ژورنال‌های علمی جهان. ما در تمامی دپارتمان‌ها از استخراج داده تا تدوین نهایی همراه شما هستیم.</p>
+        <a href="#services" class="btn-action">مشاهده دپارتمان‌های تخصصی</a>
     </header>
 
-    <!-- باقی بخش‌ها مثل قبل (کارت‌ها و مقالات) در ادامه کد قرار بگیرد -->
+    <section id="services" class="services-grid">
+        <!-- پزشکی -->
+        <div class="service-card">
+            <span class="tag">SCIENCES & MEDICINE</span>
+            <h3>دپارتمان علوم پزشکی</h3>
+            <p>تدوین مقالات Clinical Trial، مرور سیستماتیک و متاآنالیز با رعایت پروتکل‌های PRISMA و اخلاق پزشکی.</p>
+        </div>
+
+        <!-- فنی و ریاضی -->
+        <div class="service-card">
+            <span class="tag">ENGINEERING & MATH</span>
+            <h3>فنی، مهندسی و ریاضیات</h3>
+            <p>فرموله‌سازی دقیق، تحلیل‌های محاسباتی پیچیده و شبیه‌سازی با استفاده از متلب، پایتون و نرم‌افزارهای تخصصی.</p>
+        </div>
+
+        <!-- علوم انسانی -->
+        <div class="service-card">
+            <span class="tag">HUMANITIES & ARTS</span>
+            <h3>علوم انسانی و مدیریت</h3>
+            <p>تدوین مقالات کیفی و کمی در حوزه‌های مدیریت، روانشناسی، جامعه‌شناسی با تحلیل‌های دقیق آماری (SPSS, PLS).</p>
+        </div>
+    </section>
+
+    <section id="process" class="process-section">
+        <h2 style="font-size: 2.5rem; color: #fff;">مسیرِ استانداردسازی مقاله</h2>
+        <div class="process-steps">
+            <div class="step">
+                <div class="number">۱</div>
+                <h4>تحلیل داده</h4>
+                <p style="font-size: 0.9rem;">استخراج نتایج خام از فرضیات پژوهش</p>
+            </div>
+            <div class="step">
+                <div class="number">۲</div>
+                <h4>نگارش ساختاری</h4>
+                <p style="font-size: 0.9rem;">تدوین مقاله طبق ساختار IMRAD</p>
+            </div>
+            <div class="step">
+                <div class="number">۳</div>
+                <h4>استانداردسازی</h4>
+                <p style="font-size: 0.9rem;">پارافریز تخصصی و رفع مشابهت (Plagiarism)</p>
+            </div>
+            <div class="step">
+                <div class="number">۴</div>
+                <h4>سابمیت و داوری</h4>
+                <p style="font-size: 0.9rem;">همراهی تا مرحله پذیرش نهایی (Acceptance)</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 80px 8%; text-align: center;">
+        <h3 style="color: #fff; margin-bottom: 30px;">آماده‌اید تا مقاله خود را به سطح بین‌المللی برسانید؟</h3>
+        <p style="margin-bottom: 40px;">مشاوره اولیه رایگان برای بررسی پتانسیل چاپ در ژورنال‌های ISI و Scopus</p>
+        <a href="https://t.me/your_id" class="btn-action" style="background: transparent; border: 2px solid var(--accent-blue);">ارتباط مستقیم با کارشناس</a>
+    </section>
+
+    <footer>
+        <div class="logo" style="margin-bottom: 15px;">BLUE ANGEL</div>
+        <p>© ۲۰۲۶ - پیشرو در خدمات آکادمیک و پژوهشی</p>
+    </footer>
 
 </body>
 </html>
