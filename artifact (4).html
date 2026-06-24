@@ -1,0 +1,24 @@
+(function () {
+  const grid = document.getElementById('posts-grid');
+  if (!grid) return;
+
+  if (posts.length === 0) {
+    grid.innerHTML = '<p style="color:var(--text-muted)">هنوز مقاله‌ای نوشته نشده.</p>';
+    return;
+  }
+
+  posts.forEach(function (post) {
+    const card = document.createElement('a');
+    card.className = 'post-card';
+    card.href = 'post.html?id=' + post.id;
+    card.innerHTML =
+      '<div class="post-meta">' +
+        '<span class="post-tag">' + post.tag + '</span>' +
+        '<span class="post-date">' + post.date + '</span>' +
+      '</div>' +
+      '<h3>' + post.title + '</h3>' +
+      '<p>' + post.summary + '</p>' +
+      '<span class="read-more">ادامه مطلب ←</span>';
+    grid.appendChild(card);
+  });
+})();
