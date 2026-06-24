@@ -289,3 +289,451 @@
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:18px;
+    }
+    .quote{
+      padding:24px;
+      border-radius:26px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+    .quote p{color:#e6ebf8;font-size:15px}
+    .quote .name{margin-top:16px;color:var(--gold2);font-weight:700}
+    .quote .role{font-size:13px;color:var(--muted)}
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:22px;
+      align-items:start;
+    }
+    .contact-box,.form-box{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:28px;
+      padding:26px;
+      box-shadow:var(--shadow);
+    }
+    .info-list{display:grid;gap:14px;margin-top:18px}
+    .info-item{
+      padding:16px;
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .info-item strong{display:block;margin-bottom:4px;color:var(--gold2)}
+    .info-item span,.info-item a{color:var(--muted);font-size:15px}
+    form{display:grid;gap:14px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    input, select, textarea{
+      width:100%;
+      padding:15px 16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(8,16,29,.55);
+      color:#fff;
+      outline:none;
+      font:inherit;
+    }
+    textarea{min-height:140px;resize:vertical}
+    input::placeholder, textarea::placeholder{color:#93a0be}
+    input:focus, select:focus, textarea:focus{border-color:rgba(216,179,106,.45)}
+    .form-note{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:6px;
+    }
+    .success{
+      display:none;
+      margin-top:12px;
+      padding:14px 16px;
+      border-radius:16px;
+      background:rgba(39,174,96,.14);
+      border:1px solid rgba(39,174,96,.25);
+      color:#b8ffd0;
+    }
+
+    footer{
+      padding:28px 0 36px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      text-align:center;
+    }
+
+    .fade{
+      opacity:0;
+      transform:translateY(20px);
+      transition:.7s ease;
+    }
+    .fade.show{
+      opacity:1;
+      transform:none;
+    }
+
+    @media (max-width: 1024px){
+      .hero-grid,.about,.contact-grid{grid-template-columns:1fr}
+      .hero-card{min-height:440px}
+      .hero-points,.feature-list,.cards,.stats,.testimonials{grid-template-columns:repeat(2,1fr)}
+      .nav-links{
+        position:fixed;
+        inset:82px 16px auto 16px;
+        background:rgba(10,16,28,.96);
+        border:1px solid rgba(255,255,255,.08);
+        border-radius:22px;
+        padding:18px;
+        flex-direction:column;
+        align-items:stretch;
+        gap:10px;
+        transform:translateY(-20px);
+        opacity:0;
+        pointer-events:none;
+        transition:.25s ease;
+      }
+      .nav-links.open{
+        transform:none;
+        opacity:1;
+        pointer-events:auto;
+      }
+      .menu-btn{display:inline-grid;place-items:center}
+      .nav-cta .btn-ghost{display:none}
+    }
+    @media (max-width: 720px){
+      section{padding:76px 0}
+      .hero-points,.feature-list,.cards,.stats,.testimonials,.grid-2{grid-template-columns:1fr}
+      .hero-card{min-height:390px}
+      .hero-card-inner{inset:auto 14px 14px 14px}
+      .brand-text span{display:none}
+      .nav{min-height:76px}
+      .contact-box,.form-box,.about-box{padding:20px}
+      .section-head{margin-bottom:28px}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">
+        <div class="brand-mark">⚖</div>
+        <div class="brand-text">
+          دفتر وکالت آقای [نام وکیل]
+          <span>مشاوره، پیگیری و دفاع حرفه‌ای</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="active">خانه</a>
+        <a href="#about">درباره وکیل</a>
+        <a href="#services">خدمات</a>
+        <a href="#stats">سوابق</a>
+        <a href="#testimonials">نظرات موکلان</a>
+        <a href="#contact">تماس و مشاوره</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="tel:02100000000">تماس مستقیم</a>
+        <button class="menu-btn" id="menuBtn" aria-label="menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy fade">
+          <div class="eyebrow">دفتر وکالت رسمی و قابل اعتماد</div>
+          <h1>حفاظت از حقوق شما با رویکردی دقیق، حرفه‌ای و محرمانه</h1>
+          <p>
+            در پرونده‌های حقوقی، کیفری، خانواده و ملکی، تصمیم درست در زمان درست
+            می‌تواند مسیر پرونده را تغییر دهد. ما با بررسی مستند، پیگیری منظم و
+            دفاع اصولی در کنار شما هستیم.
+          </p>
+
+          <div class="btns">
+            <a class="btn btn-primary" href="#contact">رزرو مشاوره</a>
+            <a class="btn btn-ghost" href="tel:02100000000">تماس فوری</a>
+          </div>
+
+          <div class="hero-points">
+            <div class="point">
+              <strong>12+</strong>
+              <span>سال تجربه حرفه‌ای</span>
+            </div>
+            <div class="point">
+              <strong>480+</strong>
+              <span>پرونده بررسی‌شده</span>
+            </div>
+            <div class="point">
+              <strong>94%</strong>
+              <span>رضایت موکلان</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card fade" aria-label="law office visual">
+          <div class="hero-card-inner">
+            <h3>دفاع مستند، پیگیری دقیق، نتیجه‌محور</h3>
+            <p>
+              از اولین مشاوره تا پایان پرونده، مسیر حقوقی شما با دقت تحلیل و
+              مرحله‌به‌مرحله مدیریت می‌شود.
+            </p>
+            <div class="pill-row">
+              <span class="pill">پرونده‌های ملکی</span>
+              <span class="pill">دعاوی خانواده</span>
+              <span class="pill">پرونده‌های کیفری</span>
+              <span class="pill">تنظیم قرارداد</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about">
+        <div class="about-img fade"></div>
+        <div class="about-box fade">
+          <div class="eyebrow">درباره وکیل</div>
+          <h3>رویکردی حرفه‌ای برای دفاع از حقوق شما</h3>
+          <p>
+            دفتر وکالت آقای [نام وکیل] با تمرکز بر دقت حقوقی، شفافیت و پیگیری
+            منظم، خدمات مشاوره و وکالت را برای اشخاص حقیقی و حقوقی ارائه می‌دهد.
+            هدف ما ارائه راهکار عملی، قابل‌اتکا و مطابق با شرایط پرونده است.
+          </p>
+          <p>
+            هر پرونده با بررسی جزئیات، مدارک و استراتژی حقوقی مناسب ارزیابی می‌شود
+            تا بهترین مسیر قانونی برای شما انتخاب گردد.
+          </p>
+
+          <div class="feature-list">
+            <div class="feature">
+              <span>تجربه</span>
+              <p>بیش از 12 سال فعالیت مستمر</p>
+            </div>
+            <div class="feature">
+              <span>تخصص</span>
+              <p>ملکی، خانواده، کیفری، قراردادها</p>
+            </div>
+            <div class="feature">
+              <span>روش کار</span>
+              <p>تحلیل دقیق، دفاع مستند، پیگیری منظم</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head fade">
+          <div class="eyebrow">خدمات حقوقی</div>
+          <h2>خدمات تخصصی برای پرونده‌های مهم</h2>
+          <p>خدمات این دفتر با رویکرد تخصصی و متناسب با نوع پرونده ارائه می‌شود.</p>
+        </div>
+
+        <div class="cards">
+          <div class="card fade">
+            <div class="icon">👨‍👩‍👧‍👦</div>
+            <h3>دعاوی خانواده</h3>
+            <p>طلاق، مهریه، نفقه، حضانت، ملاقات و سایر امور خانوادگی با پیگیری دقیق.</p>
+          </div>
+          <div class="card fade">
+            <div class="icon">🏛️</div>
+            <h3>دعاوی ملکی</h3>
+            <p>خلع ید، تصرف عدوانی، الزام به تنظیم سند، سرقفلی و اختلافات ملکی.</p>
+          </div>
+          <div class="card fade">
+            <div class="icon">📜</div>
+            <h3>قراردادها</h3>
+            <p>تنظیم و بررسی قراردادهای حقوقی، تجاری و مشارکتی با دقت و شفافیت.</p>
+          </div>
+          <div class="card fade">
+            <div class="icon">⚖️</div>
+            <h3>دعاوی کیفری</h3>
+            <p>مشاوره و دفاع در پرونده‌های کیفری با تمرکز بر مستندات و روند قانونی.</p>
+          </div>
+          <div class="card fade">
+            <div class="icon">📑</div>
+            <h3>امور ثبتی</h3>
+            <p>رسیدگی به امور ثبت، اسناد، تغییرات و پیگیری فرآیندهای ثبتی.</p>
+          </div>
+          <div class="card fade">
+            <div class="icon">💬</div>
+            <h3>مشاوره حقوقی</h3>
+            <p>ارائه راهکارهای فوری برای تصمیم‌گیری بهتر قبل از اقدام حقوقی.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stats">
+      <div class="container">
+        <div class="section-head fade">
+          <div class="eyebrow">اعتبار و سوابق</div>
+          <h2>عددهایی که از تجربه می‌گویند</h2>
+          <p>تمرکز ما روی کیفیت دفاع، اعتماد موکل و پیگیری منظم پرونده‌هاست.</p>
+        </div>
+
+        <div class="stats">
+          <div class="stat fade">
+            <strong>480+</strong>
+            <span>پرونده بررسی و پیگیری شده</span>
+          </div>
+          <div class="stat fade">
+            <strong>12+</strong>
+            <span>سال تجربه حرفه‌ای</span>
+          </div>
+          <div class="stat fade">
+            <strong>320+</strong>
+            <span>موکل حقیقی و حقوقی</span>
+          </div>
+          <div class="stat fade">
+            <strong>94%</strong>
+            <span>رضایت ثبت‌شده موکلان</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="container">
+        <div class="section-head fade">
+          <div class="eyebrow">نظرات موکلان</div>
+          <h2>اعتماد، نتیجه تجربه خوب است</h2>
+          <p>چند نمونه از بازخوردهایی که از همراهی موکلان دریافت شده است.</p>
+        </div>
+
+        <div class="testimonials">
+          <div class="quote fade">
+            <p>«پیگیری پرونده خیلی منظم و دقیق بود و در تمام مراحل احساس آرامش داشتم.»</p>
+            <div class="name">آقای رضایی</div>
+            <div class="role">پرونده ملکی</div>
+          </div>
+          <div class="quote fade">
+            <p>«توضیحات کاملاً شفاف بود و برای تصمیم‌گیری مسیر درست را انتخاب کردیم.»</p>
+            <div class="name">خانم موسوی</div>
+            <div class="role">پرونده خانواده</div>
+          </div>
+          <div class="quote fade">
+            <p>«دفاع حرفه‌ای و برخورد محترمانه باعث شد با اطمینان پرونده را بسپاریم.»</p>
+            <div class="name">آقای حیدری</div>
+            <div class="role">پرونده کیفری</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="contact-box fade">
+          <div class="eyebrow">تماس و مشاوره</div>
+          <h2 style="font-size:32px;margin-bottom:10px">برای مشاوره حقوقی تماس بگیرید</h2>
+          <p style="color:var(--muted)">
+            برای بررسی اولیه پرونده، می‌توانید از طریق تماس تلفنی یا فرم زیر، درخواست مشاوره ثبت کنید.
+          </p>
+
+          <div class="info-list">
+            <div class="info-item">
+              <strong>تلفن تماس</strong>
+              <span><a href="tel:02100000000">021-00000000</a> | <a href="tel:09120000000">0912-000-0000</a></span>
+            </div>
+            <div class="info-item">
+              <strong>آدرس دفتر</strong>
+              <span>تهران، [آدرس کامل دفتر وکالت]</span>
+            </div>
+            <div class="info-item">
+              <strong>ساعات کاری</strong>
+              <span>شنبه تا چهارشنبه، 9:00 تا 18:00</span>
+            </div>
+            <div class="info-item">
+              <strong>واتساپ / ایمیل</strong>
+              <span><a href="https://wa.me/989120000000" target="_blank" rel="noreferrer">0912-000-0000</a> | <a href="mailto:info@example.com">info@example.com</a></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-box fade">
+          <div class="eyebrow">درخواست مشاوره</div>
+          <h3 style="font-size:28px;margin-bottom:8px">فرم رزرو مشاوره</h3>
+          <p style="color:var(--muted);margin-bottom:18px">اطلاعات خود را وارد کنید تا در اولین فرصت با شما تماس گرفته شود.</p>
+
+          <form id="consultForm">
+            <div class="grid-2">
+              <input type="text" id="name" placeholder="نام و نام خانوادگی" required />
+              <input type="tel" id="phone" placeholder="شماره تماس" required />
+            </div>
+            <div class="grid-2">
+              <select id="topic" required>
+                <option value="">نوع پرونده را انتخاب کنید</option>
+                <option>ملکی</option>
+                <option>خانواده</option>
+                <option>کیفری</option>
+                <option>قراردادها</option>
+                <option>ثبتی</option>
+                <option>مشاوره عمومی</option>
+              </select>
+              <input type="date" id="date" required />
+            </div>
+            <textarea id="details" placeholder="توضیحات مختصر درباره پرونده یا سوال حقوقی"></textarea>
+            <button class="btn btn-primary" type="submit">ثبت درخواست مشاوره</button>
+            <div class="form-note">شماره تماس شما فقط برای هماهنگی اولیه استفاده می‌شود.</div>
+            <div class="success" id="successBox">درخواست شما با موفقیت ثبت شد. به‌زودی با شما تماس می‌گیریم.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 دفتر وکالت آقای [نام وکیل] - تمامی حقوق محفوظ است.
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const consultForm = document.getElementById('consultForm');
+    const successBox = document.getElementById('successBox');
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    consultForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const topic = document.getElementById('topic').value;
+      const date = document.getElementById('date').value;
+
+      const iranPhone = /^(\+98|0)?9\d{9}$/;
+
+      if (!name || !phone || !topic || !date) {
+        alert('لطفاً همه فیلدهای ضروری را کامل کنید.');
+        return;
+      }
+
+      if (!iranPhone.test(phone.replace(/\s+/g, ''))) {
+        alert('شماره تماس معتبر وارد کنید.');
+        return;
+      }
+
+      successBox.style.display = 'block';
+      consultForm.reset();
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
