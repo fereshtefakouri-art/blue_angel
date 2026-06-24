@@ -1,28 +1,53 @@
-(function () {
-  const container = document.getElementById('post-content');
-  if (!container) return;
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بلاگ من | برنامه‌نویسی</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-  const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get('id'));
-  const post = posts.find(function (p) { return p.id === id; });
+  <!-- هدر -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">{'<dev>'}</a>
+      <nav>
+        <a href="index.html">خانه</a>
+        <a href="about.html">درباره من</a>
+      </nav>
+    </div>
+  </header>
 
-  if (!post) {
-    container.innerHTML =
-      '<a href="index.html" class="back-link">← برگشت</a>' +
-      '<p style="color:var(--text-muted)">مقاله پیدا نشد.</p>';
-    return;
-  }
+  <!-- هیرو -->
+  <section class="hero">
+    <div class="container">
+      <h1>سلام، خوش اومدی 👋</h1>
+      <p>اینجا درباره برنامه‌نویسی، تجربیات و چیزایی که یاد گرفتم می‌نویسم.</p>
+    </div>
+  </section>
 
-  document.title = post.title;
+  <!-- مقالات -->
+  <main class="container">
+    <h2 class="section-title">آخرین مقالات</h2>
+    <div class="posts-grid" id="posts-grid">
+      <!-- مقالات از JS لود میشن -->
+    </div>
+  </main>
 
-  container.innerHTML =
-    '<a href="index.html" class="back-link">← برگشت به خانه</a>' +
-    '<div class="post-header">' +
-      '<div class="post-meta">' +
-        '<span class="post-tag">' + post.tag + '</span>' +
-        '<span class="post-date">' + post.date + '</span>' +
-      '</div>' +
-      '<h1>' + post.title + '</h1>' +
-    '</div>' +
-    '<div class="post-body">' + post.content + '</div>';
-})();
+  <!-- فوتر -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>ساخته شده با ❤️ و کد</p>
+      <div class="social-links">
+        <a href="#">گیت‌هاب</a>
+        <a href="#">لینکدین</a>
+        <a href="#">توییتر</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="posts.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
