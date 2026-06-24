@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>سالن زیبایی [نام سالن]</title>
   <style>
+    :root {
+      --bg: #fff7fb;
+      --card: rgba(255, 255, 255, 0.82);
+      --text: #4d2f3a;
+      --muted: #7a5a68;
+      --pink: #d99cad;
+      --pink-dark: #b96b80;
+      --gold: #d4af37;
+      --gold-soft: #f4e5b7;
+      --shadow: 0 18px 45px rgba(140, 90, 110, 0.12);
+      --radius: 24px;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -17,9 +30,13 @@
     }
 
     body {
-      background: #fff8fb;
-      color: #4a2c35;
-      line-height: 1.8;
+      background:
+        radial-gradient(circle at top right, rgba(217, 156, 173, 0.14), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.10), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.9;
+      overflow-x: hidden;
     }
 
     a {
@@ -31,317 +48,549 @@
       list-style: none;
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 240, 245, 0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    }
-
     .container {
-      width: 90%;
-      max-width: 1200px;
+      width: min(1180px, 92%);
       margin: auto;
     }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #c58a9b;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-    }
-
-    nav ul li a {
-      font-size: 15px;
-      transition: 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #d4af37;
-    }
-
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: linear-gradient(rgba(255, 240, 245, 0.75), rgba(255, 240, 245, 0.85)),
-        url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-      padding: 40px 20px;
-    }
-
-    .hero-content {
-      max-width: 750px;
-      background: rgba(255,255,255,0.65);
-      padding: 40px;
-      border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    .hero h1 {
-      font-size: 42px;
-      color: #b76e79;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: #6b4b57;
-      margin-bottom: 25px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 28px;
-      background: linear-gradient(135deg, #e8b4c7, #d4af37);
-      color: white;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: 0.3s;
-      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.25);
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      opacity: 0.95;
-    }
-
-    section {
-      padding: 80px 0;
+    .section {
+      padding: 92px 0;
     }
 
     .section-title {
       text-align: center;
-      font-size: 32px;
-      margin-bottom: 18px;
-      color: #b76e79;
+      font-size: clamp(28px, 4vw, 40px);
+      color: var(--pink-dark);
+      margin-bottom: 12px;
     }
 
     .section-subtitle {
       text-align: center;
-      max-width: 700px;
-      margin: 0 auto 40px;
-      color: #7a5b66;
+      max-width: 760px;
+      margin: 0 auto 42px;
+      color: var(--muted);
+      font-size: 16px;
     }
 
-    .about-box {
-      background: #fff;
-      padding: 35px;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(255, 247, 251, 0.72);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(217, 156, 173, 0.14);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 18px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--pink-dark);
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--pink), var(--gold));
+      color: white;
+      box-shadow: 0 10px 24px rgba(212, 175, 55, 0.22);
+      font-size: 20px;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text);
+      font-size: 15px;
+      position: relative;
+      transition: 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--pink), var(--gold));
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--pink-dark);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      color: var(--pink-dark);
+      background: none;
+      border: none;
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 76px);
+      display: grid;
+      place-items: center;
+      padding: 60px 0;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255, 245, 248, 0.72), rgba(255, 255, 255, 0.38)),
+        url("https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+      filter: saturate(1.03);
+      transform: scale(1.02);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.08), rgba(0,0,0,0.12));
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(960px, 92%);
       text-align: center;
+      padding: 46px 34px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.58);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
     }
 
-    .services-grid,
-    .pricing-grid,
-    .gallery-grid,
-    .reviews-grid {
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--pink-dark);
+      border: 1px solid rgba(217, 156, 173, 0.18);
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 6vw, 62px);
+      line-height: 1.2;
+      color: #9f546a;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 28px;
+      color: #6f5360;
+      font-size: 17px;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.3s ease;
+      box-shadow: 0 12px 28px rgba(217, 156, 173, 0.24);
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, var(--pink), var(--gold));
+    }
+
+    .btn-secondary {
+      color: var(--pink-dark);
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(217, 156, 173, 0.20);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(217, 156, 173, 0.14);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 26px;
+      color: var(--pink-dark);
+      margin-bottom: 6px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
+      gap: 22px;
     }
 
     .card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-      transition: 0.3s;
+      background: var(--card);
+      border: 1px solid rgba(217, 156, 173, 0.12);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+      transition: 0.35s ease;
     }
 
     .card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-8px);
     }
 
     .card h3 {
-      color: #b76e79;
+      color: var(--pink-dark);
       margin-bottom: 12px;
       font-size: 20px;
     }
 
     .card p {
-      color: #6f5660;
+      color: var(--muted);
       font-size: 15px;
     }
 
-    .price {
-      margin-top: 14px;
-      font-weight: bold;
-      color: #d4af37;
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, rgba(217, 156, 173, 0.18), rgba(212, 175, 55, 0.18));
+      color: var(--pink-dark);
+      font-size: 24px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      min-height: 240px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .g1 { grid-column: span 5; }
+    .g2 { grid-column: span 4; }
+    .g3 { grid-column: span 3; }
+    .g4 { grid-column: span 6; }
+    .g5 { grid-column: span 6; }
+
+    .pricing-box {
+      background: rgba(255, 255, 255, 0.72);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(217, 156, 173, 0.12);
+      overflow: hidden;
+    }
+
+    .pricing-header {
+      padding: 24px;
+      background: linear-gradient(135deg, rgba(217, 156, 173, 0.12), rgba(212, 175, 55, 0.10));
+      text-align: center;
+    }
+
+    .pricing-body {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      padding: 22px;
+    }
+
+    .price-item {
+      background: white;
+      border: 1px solid rgba(217, 156, 173, 0.12);
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .price-item h4 {
+      color: var(--pink-dark);
+      margin-bottom: 10px;
       font-size: 18px;
     }
 
-    .gallery-grid img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      border-radius: 18px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      transition: 0.3s;
-      cursor: pointer;
+    .price-item .amount {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 20px;
+      margin-top: 10px;
     }
 
-    .gallery-grid img:hover {
-      transform: scale(1.03);
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
     }
 
-    .review-name {
-      margin-top: 12px;
-      color: #d4af37;
-      font-weight: bold;
+    .review {
+      position: relative;
+      padding-top: 34px;
     }
 
-    .booking-wrapper {
+    .review::before {
+      content: "❝";
+      position: absolute;
+      top: 0;
+      right: 18px;
+      font-size: 54px;
+      color: rgba(212, 175, 55, 0.22);
+      line-height: 1;
+    }
+
+    .review .name {
+      margin-top: 16px;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .booking {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 28px;
+      gap: 22px;
       align-items: start;
     }
 
     .booking-info,
     .booking-form {
-      background: #fff;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(217, 156, 173, 0.12);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
     }
 
     .booking-info h3,
     .booking-form h3 {
-      color: #b76e79;
-      margin-bottom: 15px;
+      color: var(--pink-dark);
+      margin-bottom: 14px;
+      font-size: 24px;
     }
 
     .booking-info p {
+      color: var(--muted);
       margin-bottom: 10px;
-      color: #6f5660;
     }
 
     form {
-      display: flex;
-      flex-direction: column;
+      display: grid;
       gap: 14px;
     }
 
-    input, select, textarea {
-      padding: 14px;
-      border: 1px solid #efd8df;
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px 15px;
       border-radius: 14px;
+      border: 1px solid rgba(217, 156, 173, 0.2);
+      background: rgba(255, 252, 253, 0.98);
+      color: var(--text);
       outline: none;
       font-size: 15px;
-      background: #fffafd;
     }
 
     textarea {
+      min-height: 120px;
       resize: vertical;
-      min-height: 110px;
     }
 
-    button {
-      border: none;
-      cursor: pointer;
-      padding: 14px 20px;
-      border-radius: 30px;
-      background: linear-gradient(135deg, #e8b4c7, #d4af37);
-      color: white;
-      font-weight: bold;
-      font-size: 15px;
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--pink);
+      box-shadow: 0 0 0 4px rgba(217, 156, 173, 0.10);
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .message {
+      display: none;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 14px;
+    }
+
+    .message.success {
+      background: rgba(67, 160, 71, 0.10);
+      color: #2f7a33;
+      display: none;
     }
 
     .contact-box {
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(217, 156, 173, 0.12);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 30px;
+      display: grid;
+      gap: 10px;
       text-align: center;
-      background: #fff;
-      padding: 35px;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
     }
 
     .contact-box p {
-      margin: 10px 0;
-      color: #6f5660;
+      color: var(--muted);
     }
 
     footer {
-      background: #f8dfe8;
+      margin-top: 30px;
+      padding: 24px 0;
       text-align: center;
-      padding: 20px;
-      color: #7a5b66;
-      margin-top: 20px;
+      color: var(--muted);
+      border-top: 1px solid rgba(217, 156, 173, 0.12);
+      background: rgba(255,255,255,0.4);
     }
 
-    .success-message {
-      display: none;
-      margin-top: 12px;
-      color: green;
-      font-weight: bold;
+    .floating-whatsapp {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      z-index: 998;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: linear-gradient(135deg, #25d366, #1faa52);
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.28);
+      font-size: 26px;
     }
 
-    .menu-toggle {
-      display: none;
-      font-size: 28px;
-      cursor: pointer;
-      color: #b76e79;
-    }
-
-    @media (max-width: 900px) {
-      .booking-wrapper {
+    @media (max-width: 980px) {
+      .stats,
+      .booking {
         grid-template-columns: 1fr;
       }
+
+      .g1, .g2, .g3, .g4, .g5 {
+        grid-column: span 12;
+      }
     }
 
-    @media (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;
-      }
-
+    @media (max-width: 780px) {
       .menu-toggle {
         display: block;
       }
 
       nav ul {
-        width: 100%;
         display: none;
+        width: 100%;
         flex-direction: column;
-        gap: 12px;
-        margin-top: 15px;
-        background: #fff6f9;
-        padding: 15px;
-        border-radius: 16px;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 16px;
+        margin-top: 14px;
+        background: rgba(255, 255, 255, 0.86);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
       }
 
       nav ul.show {
         display: flex;
       }
 
-      .hero h1 {
-        font-size: 30px;
+      .hero-inner {
+        padding: 30px 20px;
       }
 
-      .hero p {
-        font-size: 16px;
+      .section {
+        padding: 72px 0;
       }
 
-      .hero-content {
-        padding: 28px;
+      .hero-actions {
+        flex-direction: column;
       }
 
-      .section-title {
-        font-size: 26px;
+      .hero-actions .btn {
+        width: 100%;
       }
     }
   </style>
@@ -350,232 +599,4 @@
 
   <header>
     <div class="container">
-      <nav>
-        <div class="logo">[نام سالن]</div>
-        <div class="menu-toggle" id="menu-toggle">☰</div>
-        <ul id="nav-menu">
-          <li><a href="#home">خانه</a></li>
-          <li><a href="#about">معرفی سالن</a></li>
-          <li><a href="#services">خدمات</a></li>
-          <li><a href="#gallery">نمونه کار</a></li>
-          <li><a href="#pricing">تعرفه‌ها</a></li>
-          <li><a href="#booking">رزرو نوبت</a></li>
-          <li><a href="#contact">تماس</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>زیبایی، ظرافت و آرامش در [نام سالن]</h1>
-      <p>
-        تجربه‌ای متفاوت از خدمات حرفه‌ای زیبایی با محیطی لوکس، مدرن و دلنشین.
-        در [نام سالن] زیبایی شما با سلیقه، کیفیت و ظرافت همراه می‌شود.
-      </p>
-      <a href="#booking" class="btn">رزرو نوبت</a>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">معرفی سالن</h2>
-      <p class="section-subtitle">
-        [نام سالن] با بهره‌گیری از تیمی حرفه‌ای و استفاده از متریال باکیفیت، محیطی لوکس و آرام را برای تجربه خدمات زیبایی فراهم کرده است.
-      </p>
-      <div class="about-box">
-        <p>
-          ما در [نام سالن] تلاش می‌کنیم تا هر مراجعه‌کننده تجربه‌ای خاص، متفاوت و رضایت‌بخش داشته باشد.
-          خدمات ما شامل میکاپ، شینیون، رنگ مو، خدمات پوست، ناخن و مراقبت‌های زیبایی است.
-          اولویت ما کیفیت، بهداشت، رضایت مشتری و ارائه خدمات به‌روز و تخصصی است.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="container">
-      <h2 class="section-title">خدمات ما</h2>
-      <p class="section-subtitle">مجموعه‌ای از خدمات حرفه‌ای زیبایی با جدیدترین متدها</p>
-      <div class="services-grid">
-        <div class="card">
-          <h3>میکاپ حرفه‌ای</h3>
-          <p>آرایش تخصصی عروس، مهمانی و مراسم با استفاده از بهترین برندهای آرایشی.</p>
-        </div>
-        <div class="card">
-          <h3>شینیون و استایل مو</h3>
-          <p>انواع شینیون مدرن، کلاسیک و اروپایی متناسب با فرم صورت و استایل شما.</p>
-        </div>
-        <div class="card">
-          <h3>رنگ و لایت</h3>
-          <p>خدمات تخصصی رنگ، بالیاژ، آمبره، هایلایت و احیای مو با تکنیک‌های روز.</p>
-        </div>
-        <div class="card">
-          <h3>خدمات ناخن</h3>
-          <p>کاشت ناخن، ژلیش، طراحی ناخن و مانیکور/پدیکور با ظرافت و کیفیت بالا.</p>
-        </div>
-        <div class="card">
-          <h3>مراقبت پوست</h3>
-          <p>پاکسازی، فیشیال، آبرسانی و مراقبت‌های پوستی برای شادابی و طراوت بیشتر.</p>
-        </div>
-        <div class="card">
-          <h3>اصلاح و ابرو</h3>
-          <p>اصلاح صورت، فرم‌دهی ابرو و خدمات تخصصی مرتبط با زیبایی چهره.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="gallery">
-    <div class="container">
-      <h2 class="section-title">نمونه کار</h2>
-      <p class="section-subtitle">بخشی از زیبایی خلق‌شده در [نام سالن]</p>
-      <div class="gallery-grid">
-        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=900&q=80" alt="نمونه کار 1">
-        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80" alt="نمونه کار 2">
-        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80" alt="نمونه کار 3">
-        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80" alt="نمونه کار 4">
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing">
-    <div class="container">
-      <h2 class="section-title">تعرفه‌ها</h2>
-      <p class="section-subtitle">قیمت‌های تقریبی خدمات — قابل تنظیم بر اساس نوع خدمات</p>
-      <div class="pricing-grid">
-        <div class="card">
-          <h3>میکاپ مهمانی</h3>
-          <p>آرایش حرفه‌ای و ماندگار برای مراسم و مهمانی‌ها</p>
-          <div class="price">از ۸۰۰,۰۰۰ تومان</div>
-        </div>
-        <div class="card">
-          <h3>شینیون حرفه‌ای</h3>
-          <p>شینیون متناسب با چهره، لباس و سبک مراسم</p>
-          <div class="price">از ۷۰۰,۰۰۰ تومان</div>
-        </div>
-        <div class="card">
-          <h3>رنگ و لایت</h3>
-          <p>رنگ مو با متریال باکیفیت و تکنیک‌های روز</p>
-          <div class="price">از ۱,۵۰۰,۰۰۰ تومان</div>
-        </div>
-        <div class="card">
-          <h3>خدمات ناخن</h3>
-          <p>کاشت، ژلیش و طراحی ناخن حرفه‌ای</p>
-          <div class="price">از ۵۵۰,۰۰۰ تومان</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="reviews">
-    <div class="container">
-      <h2 class="section-title">نظرات مشتریان</h2>
-      <p class="section-subtitle">رضایت شما، بزرگ‌ترین افتخار ماست</p>
-      <div class="reviews-grid">
-        <div class="card">
-          <p>هم کیفیت خدمات عالی بود هم برخورد پرسنل خیلی حرفه‌ای و محترمانه. حتماً دوباره مراجعه می‌کنم.</p>
-          <div class="review-name">الهام</div>
-        </div>
-        <div class="card">
-          <p>فضای سالن خیلی شیک و آرامش‌بخش بود. از نتیجه میکاپ و شینیونم کاملاً راضی بودم.</p>
-          <div class="review-name">سمیرا</div>
-        </div>
-        <div class="card">
-          <p>رنگ مو و خدمات پوستی فوق‌العاده بود. واقعاً حس یک تجربه لوکس و خاص داشتم.</p>
-          <div class="review-name">نگین</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="booking">
-    <div class="container">
-      <h2 class="section-title">رزرو نوبت</h2>
-      <p class="section-subtitle">برای دریافت وقت، فرم زیر را تکمیل کنید</p>
-      <div class="booking-wrapper">
-        <div class="booking-info">
-          <h3>اطلاعات رزرو</h3>
-          <p>برای رزرو سریع‌تر، نام، شماره تماس، نوع خدمت و تاریخ موردنظر خود را وارد کنید.</p>
-          <p>همکاران ما در سریع‌ترین زمان با شما تماس خواهند گرفت.</p>
-          <p><strong>ساعات کاری:</strong> همه روزه از ۱۰ صبح تا ۸ شب</p>
-          <p><strong>شماره تماس:</strong> 0912-000-0000</p>
-          <p><strong>آدرس:</strong> [آدرس سالن شما]</p>
-        </div>
-
-        <div class="booking-form">
-          <h3>فرم رزرو</h3>
-          <form id="bookingForm">
-            <input type="text" id="name" placeholder="نام و نام خانوادگی" required>
-            <input type="tel" id="phone" placeholder="شماره تماس" required>
-            <select id="service" required>
-              <option value="">انتخاب خدمت</option>
-              <option>میکاپ حرفه‌ای</option>
-              <option>شینیون و استایل مو</option>
-              <option>رنگ و لایت</option>
-              <option>خدمات ناخن</option>
-              <option>مراقبت پوست</option>
-              <option>اصلاح و ابرو</option>
-            </select>
-            <input type="date" id="date" required>
-            <textarea id="message" placeholder="توضیحات تکمیلی"></textarea>
-            <button type="submit">ثبت درخواست رزرو</button>
-            <div class="success-message" id="successMessage">درخواست شما با موفقیت ثبت شد.</div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">تماس با ما</h2>
-      <div class="contact-box">
-        <p><strong>نام سالن:</strong> [نام سالن]</p>
-        <p><strong>شماره تماس:</strong> 0912-000-0000</p>
-        <p><strong>اینستاگرام:</strong> @your_salon_page</p>
-        <p><strong>آدرس:</strong> [آدرس کامل سالن شما]</p>
-        <p><strong>ایمیل:</strong> salon@example.com</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © 2026 تمامی حقوق برای [نام سالن] محفوظ است.
-  </footer>
-
-  <script>
-    const menuToggle = document.getElementById("menu-toggle");
-    const navMenu = document.getElementById("nav-menu");
-
-    menuToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("show");
-    });
-
-    const bookingForm = document.getElementById("bookingForm");
-    const successMessage = document.getElementById("successMessage");
-
-    bookingForm.addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const name = document.getElementById("name").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const service = document.getElementById("service").value;
-      const date = document.getElementById("date").value;
-
-      if (!name || !phone || !service || !date) {
-        alert("لطفاً همه فیلدهای ضروری را کامل کنید.");
-        return;
-      }
-
-      successMessage.style.display = "block";
-      bookingForm.reset();
-
-      setTimeout(() => {
-        successMessage.style.display = "none";
-      }, 4000);
-    });
-  </script>
-
-</body>
-</html>
+      <div 
